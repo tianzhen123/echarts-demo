@@ -3,7 +3,7 @@
  * @Autor: tianzhen
  * @Date: 2021-05-22 11:07:56
  * @LastEditors  : tianzhen
- * @LastEditTime : 2022-02-24 14:56:38 +0800
+ * @LastEditTime : 2022-02-24 16:40:30 +0800
 -->
 <template>
 	<div class="about">
@@ -28,8 +28,8 @@
 					@change="selectModel"
 				>
 					<el-option
-						v-for="item in options"
-						:key="item.value"
+						v-for="(item,index) in options"
+						:key="index"
 						:label="item.label"
 						:value="item.value"
 					>
@@ -155,12 +155,12 @@ export default {
 		return {
 			chart: null,
 			chartType: null,
-			code: defaultLine,
+			code: null,
 			form: {
 				name: "",
 				source: "http://10.2.94.22:3000/",
 				delivery: false,
-				model: null,
+				model: 'defaultLine',
 				textarea: "",
 			},
 			form2: {
@@ -171,15 +171,15 @@ export default {
 			},
 			options: [
 				{
-					value: defaultLine,
+					value: 'defaultLine',
 					label: "折线图",
 				},
 				{
-					value: defaultBar,
+					value: 'defaultBar',
 					label: "柱状图",
 				},
 				{
-					value: defaultPie,
+					value: 'defaultPie',
 					label: "饼图",
 				},
 			],
@@ -263,6 +263,12 @@ export default {
 					},
 				],
 			},
+            defaultCharts:{
+                'defaultLine':defaultLine,
+                'defaultBar':defaultBar,
+                'defaultPie':defaultPie
+            }
+
 		};
 	},
 	methods: {
@@ -314,6 +320,7 @@ export default {
 			this.chart.on("click", (param) => {
 				// eval(this.form.textarea)
 				window.parent.postMessage("发送信息about");
+                this.$message(`${param.value}`)
 			});
 
 			setTimeout(() => {
@@ -344,7 +351,7 @@ export default {
 		},
 		// 选择模板
 		selectModel() {
-			this.code = `option = ${this.form.model}`;
+			this.code = `option = ${JSON.stringify(this.defaultCharts[this.form.model],null,4)}`;
 		},
 		handleChange(value) {
 			this.chartType = value[0];
@@ -353,6 +360,7 @@ export default {
 		switchChange(value) {
 			if (value) {
 				this.formRules.model[0].required = false;
+                this.selectModel()
 			} else {
 				this.formRules.model[0].required = true;
 			}

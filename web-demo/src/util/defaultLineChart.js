@@ -3,7 +3,7 @@
  * @Autor: tianzhen
  * @Date: 2021-08-16 10:13:17
  * @LastEditors  : tianzhen
- * @LastEditTime : 2022-02-24 14:49:50 +0800
+ * @LastEditTime : 2022-02-24 15:21:16 +0800
  */
 const basicOptions = {
     title: {
@@ -58,7 +58,7 @@ const stackedAreaChart = {
 
 }
 
-const defaultLine = `option = {
+const defaultLine = {
     xAxis: {
       type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -72,7 +72,7 @@ const defaultLine = `option = {
         type: 'line'
       }
     ]
-  };`
+  };
 
 export {
     basicLine,

@@ -3,9 +3,9 @@
  * @Autor        : tianzhen
  * @Date         : 2022-02-24 14:51:40 +0800
  * @LastEditors  : tianzhen
- * @LastEditTime : 2022-02-24 14:51:40 +0800
+ * @LastEditTime : 2022-02-24 15:24:19 +0800
  */
-const defaultPie = `option = {
+const defaultPie ={
     title: {
       text: 'Referer of a Website',
       subtext: 'Fake Data',
@@ -39,7 +39,7 @@ const defaultPie = `option = {
         }
       }
     ]
-  };`
+  };
 
 export {
     defaultPie

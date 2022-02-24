@@ -3,7 +3,7 @@
  * @Autor: tianzhen
  * @Date: 2021-08-16 17:08:23
  * @LastEditors  : tianzhen
- * @LastEditTime : 2022-02-24 14:49:43 +0800
+ * @LastEditTime : 2022-02-24 15:24:34 +0800
  */
 // 基础配置
 const basicOptions = {
@@ -47,7 +47,7 @@ const staticBarChart = {
     ...basicOptions,
 }
 
-const defaultBar = `option = {
+const defaultBar = {
     xAxis: {
       type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -61,7 +61,7 @@ const defaultBar = `option = {
         type: 'bar'
       }
     ]
-  };`
+  };
 export {
     basicBarChart,
     staticColumnChart,
