@@ -2,8 +2,8 @@
  * @Description: 折线图
  * @Autor: tianzhen
  * @Date: 2021-08-16 10:13:17
- * @LastEditors: Set Name
- * @LastEditTime: 2021-08-16 19:03:28
+ * @LastEditors  : tianzhen
+ * @LastEditTime : 2022-02-24 14:49:50 +0800
  */
 const basicOptions = {
     title: {
@@ -58,9 +58,26 @@ const stackedAreaChart = {
 
 }
 
+const defaultLine = `option = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: [150, 230, 224, 218, 135, 147, 260],
+        type: 'line'
+      }
+    ]
+  };`
+
 export {
     basicLine,
     stackedLineChart,
     basicAreaChart,
-    stackedAreaChart
+    stackedAreaChart,
+    defaultLine
 }

@@ -2,8 +2,8 @@
  * @Description: 
  * @Autor: tianzhen
  * @Date: 2021-05-22 11:07:56
- * @LastEditors: Set Name
- * @LastEditTime: 2021-08-17 10:15:31
+ * @LastEditors  : tianzhen
+ * @LastEditTime : 2022-02-24 14:56:38 +0800
 -->
 <template>
 	<div class="about">
@@ -126,25 +126,27 @@
 import * as echarts from "echarts";
 import Editor from "vue2-ace-editor";
 import {
-	defaultLineChart,
-	defaultBarChart,
-	defaultPieChart,
 	basicPieChart,
 	circlePieChart,
 	rosePieChart,
-} from "./defaultCharts.js";
+} from "../util/defaultCharts.js";
 import {
+    defaultLine,
 	basicLine,
 	stackedLineChart,
 	basicAreaChart,
 	stackedAreaChart,
 } from "../util/defaultLineChart";
 import {
+    defaultBar,
 	basicBarChart,
 	staticColumnChart,
 	barChart,
 	staticBarChart,
 } from "../util/defaultBarChart";
+import {
+    defaultPie
+} from "../util/defaultPieChart"
 export default {
 	components: {
 		Editor,
@@ -153,35 +155,7 @@ export default {
 		return {
 			chart: null,
 			chartType: null,
-			code: `option = {
-                        title: {
-                            text: '某站点用户访问来源',
-                            subtext: '纯属虚构',
-                            left: 'center'
-                        },
-                        tooltip: {
-                            trigger: 'item'
-                        },
-                        legend: {
-                            orient: 'vertical',
-                            left: 'left',
-                        },
-                        series: [
-                            {
-                                name: '访问来源',
-                                type: 'pie',
-                                radius: '50%',
-                                data: dataSource,
-                                emphasis: {
-                                    itemStyle: {
-                                        shadowBlur: 10,
-                                        shadowOffsetX: 0,
-                                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                                    }
-                                }
-                            }
-                        ]
-                    };`,
+			code: defaultLine,
 			form: {
 				name: "",
 				source: "http://10.2.94.22:3000/",
@@ -197,15 +171,15 @@ export default {
 			},
 			options: [
 				{
-					value: defaultLineChart,
+					value: defaultLine,
 					label: "折线图",
 				},
 				{
-					value: defaultBarChart,
+					value: defaultBar,
 					label: "柱状图",
 				},
 				{
-					value: defaultPieChart,
+					value: defaultPie,
 					label: "饼图",
 				},
 			],
